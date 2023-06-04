@@ -7,7 +7,6 @@ public class TareasContext : DbContext
 {
   public DbSet<Categoria> Categorias { get; set; }
   public DbSet<Tarea> Tareas { get; set; }
-
   public TareasContext(DbContextOptions<TareasContext> options) :base(options) {}
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -18,9 +17,7 @@ public class TareasContext : DbContext
       categoria.HasKey(key => key.CategoriaId);
 
       categoria.Property(p => p.Nombre).IsRequired().HasMaxLength(150);
-
       categoria.Property(p => p.Descripcion);
-
       categoria.Property(p => p.Peso);
     });
 
@@ -35,6 +32,8 @@ public class TareasContext : DbContext
       tarea.Property(p => p.Descripcion);
       tarea.Property(p => p.PrioridadTarea);
       tarea.Property(p => p.FechaCreacion);
+      tarea.Property(p => p.Puntos);
+
       tarea.Ignore(p => p.Resumen);
     });
   }
