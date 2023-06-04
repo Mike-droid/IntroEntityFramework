@@ -57,11 +57,26 @@ app.MapPut("/api/v1/tareas/{id}", async ([FromServices] TareasContext dbContext,
     tareaActual.Puntos = tarea.Puntos;
 
     await dbContext.SaveChangesAsync();
-    return Results.Ok();
+    return Results.Ok("Tarea actualizada");
   }
 
-  return Results.NotFound();
+  return Results.NotFound("La tarea no fue encontrada");
 
+});
+
+app.MapDelete("/api/v1/tareas/{id}", async ([FromServices] TareasContext dbContext, [FromRoute] Guid id) =>
+{
+  var tareaActual = dbContext.Tareas.Find(id);
+
+  if (tareaActual == null)
+  {
+    return Results.NotFound("La tarea no fue encontrada");
+  }
+
+  dbContext.Remove(tareaActual);
+  await dbContext.SaveChangesAsync();
+
+  return Results.Ok("Tarea eliminada");
 });
 
 
