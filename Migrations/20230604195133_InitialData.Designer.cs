@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using proyectoEF;
 
@@ -11,9 +12,11 @@ using proyectoEF;
 namespace proyectoEF.Migrations
 {
     [DbContext(typeof(TareasContext))]
-    partial class TareasContextModelSnapshot : ModelSnapshot
+    [Migration("20230604195133_InitialData")]
+    partial class InitialData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,12 +58,6 @@ namespace proyectoEF.Migrations
                             CategoriaId = new Guid("6ae7acaa-9324-486f-976c-70b93b5a5e02"),
                             Nombre = "Actividades personales",
                             Peso = 50
-                        },
-                        new
-                        {
-                            CategoriaId = new Guid("6ae7acaa-9324-486f-976c-5ac93b5a5e02"),
-                            Nombre = "Cosas trabajo",
-                            Peso = 100
                         });
                 });
 
@@ -101,7 +98,7 @@ namespace proyectoEF.Migrations
                         {
                             TareaId = new Guid("8de7acaa-9324-486f-976c-70b93b5a5eed"),
                             CategoriaId = new Guid("6ae7acaa-9324-486f-976c-70b93b5a5eed"),
-                            FechaCreacion = new DateTime(2023, 6, 4, 14, 56, 52, 721, DateTimeKind.Local).AddTicks(4398),
+                            FechaCreacion = new DateTime(2023, 6, 4, 14, 51, 33, 107, DateTimeKind.Local).AddTicks(3387),
                             PrioridadTarea = 1,
                             Puntos = 0,
                             Titulo = "Pago de servicios públicos"
@@ -110,19 +107,10 @@ namespace proyectoEF.Migrations
                         {
                             TareaId = new Guid("9ce7acaa-9324-486f-976c-70b93b5a5eed"),
                             CategoriaId = new Guid("6ae7acaa-9324-486f-976c-70b93b5a5e02"),
-                            FechaCreacion = new DateTime(2023, 6, 4, 14, 56, 52, 721, DateTimeKind.Local).AddTicks(4448),
+                            FechaCreacion = new DateTime(2023, 6, 4, 14, 51, 33, 107, DateTimeKind.Local).AddTicks(3430),
                             PrioridadTarea = 0,
                             Puntos = 0,
                             Titulo = "Terminar serie en Netflix"
-                        },
-                        new
-                        {
-                            TareaId = new Guid("9ce7acaa-1234-486f-976c-70b93b5a5eed"),
-                            CategoriaId = new Guid("6ae7acaa-9324-486f-976c-5ac93b5a5e02"),
-                            FechaCreacion = new DateTime(2023, 6, 4, 14, 56, 52, 721, DateTimeKind.Local).AddTicks(4452),
-                            PrioridadTarea = 2,
-                            Puntos = 0,
-                            Titulo = "Reparar bug de React.js"
                         });
                 });
 
