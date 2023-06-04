@@ -1,8 +1,6 @@
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace proyectoEF.Models;
 
-[Table("Categoria")]
+//[Table("Categoria")]
 public class Categoria
 {
   //[Key]
